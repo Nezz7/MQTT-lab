@@ -1,0 +1,2 @@
+"BROKER_IP" = mqtt-broker
+"BROKER_PORT" = 1883

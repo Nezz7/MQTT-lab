@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/joho/godotenv"
 )
 
 var messagePubHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {
@@ -24,10 +26,15 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 }
 
 func main() {
-	var broker = "broker.emqx.io"
-	var port = 1883
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
+
+	broker := os.Getenv("BROKER_IP")
+	port := os.Getenv("BROKER_PORT")
 	opts := mqtt.NewClientOptions()
-	opts.AddBroker(fmt.Sprintf("tcp://%s:%d", broker, port))
+	opts.AddBroker(fmt.Sprintf("tcp://%s:%s", broker, port))
 	opts.SetClientID("go_mqtt_clientSM")
 	opts.SetUsername("sm")
 	opts.SetPassword("public")
