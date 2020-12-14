@@ -21,7 +21,7 @@ You can test this lab using docker-compose.
 `$ cd /mdms`<br>
 5. Create the docker image : mdms-mqtt  <br>
 `$ docker build -t mdms-mqtt .`<br>
-6. Run the lab
+6. Run the lab <br>
 `$ docker-compose up -d`<br>
 
 
