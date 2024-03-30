@@ -12,7 +12,7 @@
 ## Test
 You can test this lab using docker-compose.
 1. Clone this repository <br>
-`$ git clone https://github.com/Nezz7/docker-swarm-lab.git`
+`$ git clone https://github.com/Nezz7/MQTT-lab.git`
 2. Change the current working directory <br>
 `$ cd /MQTT-lab`<br>
 3. Create the docker image : sm-mqtt  <br>
